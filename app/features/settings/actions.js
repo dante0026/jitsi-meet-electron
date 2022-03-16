@@ -4,10 +4,27 @@ import {
     SET_ALWAYS_ON_TOP_WINDOW_ENABLED,
     SET_DISABLE_AGC,
     SET_SERVER_URL,
-    SET_SERVER_TIMEOUT
+    SET_SERVER_TIMEOUT,
+	SET_ENABLE_REMOTE_CONTROL
 } from './actionTypes';
 
 import { normalizeServerURL } from '../utils';
+
+/**
+ * Set Enable Remote Control
+ *
+ * @param {boolean} enableRemoteControl - Whether to enable remote control
+ * @returns {{
+ *     type: SET_ENABLE_REMOTE_CONTROL,
+ *     enableRemoteControl: boolean
+ * }}
+ */
+export function setEnableRemoteControl(enableRemoteControl: boolean) {
+    return {
+        type: SET_ENABLE_REMOTE_CONTROL,
+        enableRemoteControl
+    };
+}
 
 /**
  * Set Server URL.
