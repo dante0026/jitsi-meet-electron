@@ -9,7 +9,7 @@ Desktop application for [Jitsi Meet] built with [Electron].
 - [End-to-End Encryption](https://jitsi.org/blog/e2ee/) support (BETA)
 - Works with any Jitsi Meet deployment
 - Builtin auto-updates
-- Remote control
+- Remote control ==> __Please note the potential security issues. Just use it for trusted Jitsi Meet servers!__
 - Always-On-Top window
 - Support for deeplinks such as `jitsi-meet://myroom` (will open `myroom` on the configured Jitsi instance) or `jitsi-meet://jitsi.mycompany.com/myroom` (will open `myroom` on the Jitsi instance running on `jitsi.mycompany.com`)
 
@@ -17,25 +17,11 @@ Desktop application for [Jitsi Meet] built with [Electron].
 
 Download our latest release and you're off to the races!
 
-| Windows | macOS | GNU/Linux (AppImage) | GNU/Linux (Deb) |
-| -- | -- | -- | -- |
-| [Download](https://github.com/jitsi/jitsi-meet-electron/releases/latest/download/jitsi-meet.exe) | [Download](https://github.com/jitsi/jitsi-meet-electron/releases/latest/download/jitsi-meet.dmg) | [Download](https://github.com/jitsi/jitsi-meet-electron/releases/latest/download/jitsi-meet-x86_64.AppImage) | [Download](https://github.com/jitsi/jitsi-meet-electron/releases/latest/download/jitsi-meet-amd64.deb) |
+| Windows | GNU/Linux binaries |
+| -- | -- |
+| [Download](https://github.com/jitsi/jitsi-meet-electron/releases/latest/download/jitsi-meet.exe) | [Download](https://github.com/jitsi/jitsi-meet-electron/releases/latest/download/jitsi-meet-amd64.deb) |
 
 NOTE: The GNU/LInux builds are 64-bit only.
-
-### Third-Party builds
-
-[<img src="https://flathub.org/assets/badges/flathub-badge-en.svg"
-     alt="Download On Flathub"
-     height="60">](https://flathub.org/apps/details/org.jitsi.jitsi-meet)
-
-### Homebrew
-
-For *macOS* user, you can install the application using the following command:
-
-```
-brew install --cask jitsi-meet
-```
 
 ### Using it with your own Jitsi Meet installation
 
@@ -70,11 +56,22 @@ npm install --global --production windows-build-tools
 
 <details><summary>Extra dependencies for GNU/Linux</summary>
 
-X11, PNG and zlib development packages are necessary. On Debian-like systems then can be installed as follows:
+X11, PNG and zlib development packages are necessary.
+On Debian-like systems they can be installed as follows:
 
 ```bash
 sudo apt install libx11-dev zlib1g-dev libpng-dev libxtst-dev
 ```
+On Fedora (or derived from Fedora) systems they can be installed as follows:
+
+```bash
+sudo dnf module install nodejs:16
+sudo dnf install libX11-devel
+sudo dnf install zlib-devel
+sudo dnf install libpng-devel
+sudo dnf install libXtst-devel
+```
+
 </details>
 
 Install all required packages:
@@ -134,18 +131,6 @@ npm install @jitsi/electron-sdk --force
 NOTE: Also check the [jitsi-meet-electron-sdk README] to see how to configure
 your environment.
 
-#### Publishing
-
-1. Create release branch: `git checkout -b release-1-2-3`, replacing 1-2-3 with the desired release version
-2. Increment the version: `npm version patch`, replacing `patch` with `minor` or `major` as required
-3. Push release branch to github: `git push -u origin release-1-2-3`
-4. Create PR: `gh pr create`
-5. Once PR is reviewed and ready to merge, create draft Github release: `gh release create v1.2.3 --draft --title 1.2.3`, replacing v1.2.3 and 1.2.3 with the desired release version
-6. Merge PR
-7. Github action will build binaries and attach to the draft release
-8. Test binaries from draft release
-9. If all tests are fine, publish draft release
-
 </details>
 
 ## Known issues
@@ -154,13 +139,9 @@ your environment.
 
 A warning will show up mentioning the app is unsigned upon first install. This is expected.
 
-### macOS
-
-On macOS Catalina a warning will be displayed on first install. The app won't open unless "open" is pressed. This dialog is only shown once.
-
 ### GNU/Linux
 
-If after downloading it, you can't execute the file directly, try running `chmod u+x ./jitsi-meet-x86_64.AppImage`
+If you can't execute the file directly, try running `chmod u+x ./jitsi-meet-x86_64`
 
 <details><summary>NOTE for old GNU/Linux distributions</summary>
 
