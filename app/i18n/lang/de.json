@@ -28,6 +28,7 @@
 		"invalidServerTimeout": "Ungültiger Wert für die Server-Wartezeit",
 		"serverUrl": "Server-Adresse",
 		"serverTimeout": "Server-Wartezeit (in Sekunden)",
+		"enableRemoteControl": "Steuerung übernehmen aktivieren",
 		"disableAGC": "Automatische Mikrofonlautstärkeregelung deaktivieren"
 	}
 }
