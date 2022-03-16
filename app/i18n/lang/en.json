@@ -28,6 +28,7 @@
 		"invalidServerTimeout": "Invalid value for Server Timeout",
 		"serverUrl": "Server URL",
 		"serverTimeout": "Server Timeout (in seconds)",
+		"enableRemoteControl": "Activate remote control",
 		"disableAGC": "Disable automatic gain control"
 	}
 }
