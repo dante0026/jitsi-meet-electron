@@ -14,7 +14,7 @@ import { closeDrawer, DrawerContainer, Logo } from '../../navbar';
 import { Onboarding, startOnboarding } from '../../onboarding';
 import { SettingsContainer, TogglesContainer } from '../styled';
 import {
-    setWindowAlwaysOnTop, setDisableAGC
+    setWindowAlwaysOnTop, setDisableAGC, setEnableRemoteControl
 } from '../actions';
 
 import SettingToggle from './SettingToggle';
@@ -107,6 +107,10 @@ class SettingsDrawer extends Component<Props, *> {
                                 label = { t('settings.disableAGC') }
                                 settingChangeEvent = { setDisableAGC }
                                 settingName = 'disableAGC' />
+							<SettingToggle
+                                label = { t('settings.enableRemoteControl') }
+                                settingChangeEvent = { setEnableRemoteControl }
+                                settingName = 'enableRemoteControl' />
                         </TogglesContainer>
                         <Onboarding section = 'settings-drawer' />
                     </SettingsContainer>
