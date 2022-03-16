@@ -38,3 +38,13 @@ export const SET_SERVER_URL = Symbol('SET_SERVER_URL');
  * }
  */
 export const SET_SERVER_TIMEOUT = Symbol('SET_SERVER_TIMEOUT');
+
+/**
+ * The type of (redux) action that sets Remote Control Enabled 
+ *
+ * @type {
+ *     type: SET_ENABLE_REMOTE_CONTROL,
+ *     enableRemoteControl: boolean
+ * }
+ */
+export const SET_ENABLE_REMOTE_CONTROL= Symbol('SET_ENABLE_REMOTE_CONTROL');
