@@ -4,21 +4,24 @@ import {
     SET_ALWAYS_ON_TOP_WINDOW_ENABLED,
     SET_DISABLE_AGC,
     SET_SERVER_URL,
-    SET_SERVER_TIMEOUT
+    SET_SERVER_TIMEOUT,
+	SET_ENABLE_REMOTE_CONTROL
 } from './actionTypes';
 
 type State = {
     alwaysOnTopWindowEnabled: boolean,
     disableAGC: boolean,
     serverURL: ?string,
-    serverTimeout: ?number
+    serverTimeout: ?number,
+	enableRemoteControl: boolean
 };
 
 const DEFAULT_STATE = {
     alwaysOnTopWindowEnabled: true,
     disableAGC: false,
     serverURL: undefined,
-    serverTimeout: undefined
+    serverTimeout: undefined,
+	enableRemoteControl: false
 };
 
 /**
@@ -52,6 +55,12 @@ export default (state: State = DEFAULT_STATE, action: Object) => {
         return {
             ...state,
             serverTimeout: action.serverTimeout
+        };
+		
+	case SET_ENABLE_REMOTE_CONTROL:
+        return {
+            ...state,
+            enableRemoteControl: action.enableRemoteControl
         };
 
     default:
