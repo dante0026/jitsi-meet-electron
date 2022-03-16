@@ -15,8 +15,6 @@ import { conferenceEnded, conferenceJoined } from '../actions';
 import JitsiMeetExternalAPI from '../external_api';
 import { LoadingIndicator, Wrapper } from '../styled';
 
-const ENABLE_REMOTE_CONTROL = true;
-
 type Props = {
 
     /**
@@ -48,6 +46,11 @@ type Props = {
      * Default Jitsi Server Timeout.
      */
     _serverTimeout: number;
+	
+	/**
+     * Enable Remote Control
+     */
+    _enableRemoteControl: boolean;
 };
 
 type State = {
@@ -200,6 +203,7 @@ class Conference extends Component<Props, State> {
         const configOverwrite = {
             disableAGC: this.props._disableAGC,
             prejoinPageEnabled: true,
+			enableRemoteControl: this.props._enableRemoteControl,
             prejoinConfig: {
                 enabled: true
             }
@@ -248,7 +252,7 @@ class Conference extends Component<Props, State> {
 
         setupScreenSharingRender(this._api);
 
-        if (ENABLE_REMOTE_CONTROL) {
+        if (this.props._enableRemoteControl) {
             new RemoteControl(iframe); // eslint-disable-line no-new
         }
 
@@ -340,7 +344,8 @@ function _mapStateToProps(state: Object) {
         _alwaysOnTopWindowEnabled: getSetting(state, 'alwaysOnTopWindowEnabled', true),
         _disableAGC: state.settings.disableAGC,
         _serverURL: state.settings.serverURL,
-        _serverTimeout: state.settings.serverTimeout
+        _serverTimeout: state.settings.serverTimeout,
+		_enableRemoteControl: state.settings.enableRemoteControl
     };
 }
 
