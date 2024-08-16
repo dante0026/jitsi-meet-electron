@@ -1,6 +1,8 @@
 # Jitsi Meet Electron
 
 Desktop application for [Jitsi Meet] built with [Electron].
+This is a forked build with activated remote control feature and disabled auto update (due to the fact that application with remote control would be overridden).
+For binaries check the release artifacts.
 
 ![](screenshot.png)
 
